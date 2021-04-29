@@ -3,31 +3,70 @@
 % \include{cat_preamble}
 
 \begin{document}
-  \section{CSS}
-  \section{CSO's}
-  \section{Universes and CSU's}
-  \section{Toposes}
-  \subsection{descent}
-  \begin{definition}
-    \de{cartesian natural transformation} (what you'd expect).
-    
-  \end{definition}
+%================================================================================
+\section{1-cat stuff}
+%================================================================================
+\subsection{fibrations}
+%================================================================================
+(reference is Borceux Vol. 2 \cite{borceuxV2})
 \begin{definition}
-  a category satisfies \de{descent} if   
+\label{cartesian-map}
+Given a functor of $1$-categories $F: \E\to \B$, and a map $\alpha : J \to I$ in $\B$ we say $f:Y\to X$ is \de{ $F$-cartesian (over $\alpha$)} if
+\begin{enumerate}
+\item $F(f)=\alpha$
+  \item for every $g: Z\to X$ if for some $\beta : K \to J$ we have $F(g)= \alpha\comp \beta$, then there is a unique $H:Z\to Y$ s.t $F(h)\beta$ and $g = f\comp h$
+\end{enumerate}
+If context is obvious, we will simply say $f$ is cartesian.
 \end{definition}
-  \begin{definition}
-    A category $\E$ is an Elementary Higher Topos if it satisfies all of the following:
-    \begin{enumerate}
-      \item it has finite limits and colimits \joseph{it's probably the case that only one of these is needed, but that hasn't been proven yet)
-      \item it has a subobject classifier (object denoted \Omega_\E representing the functor $Sub(\bullet)$)
-      \item it is locally cartesian closed (all slice cats are cartesian closed
-	\item  every map is contained in some closed class $S$  of morphisms which is classified by some $\U^S\in \E$.
-    \end{enumerate}
+In other words, $f$ is an $F$-lift of $\alpha$ and any other map into the codomain of $f$ which factors in \B (upon applying $F$) also factors uniquely in $\E$.
+\begin{definition}
+  A functor $F:\E \to \B$ is a \de{cartesian fibration} if for every $\alpha: \J \to I$ in $\B$ and every $x\in \E$ s.t. $F(x)= I$, there exists an $f:Y\to X$ which is $F$-cartesian over $\alpha$.
+\end{definition}
+\begin{xample}
+Let $\C$ be a category (not necessarily small), and consider the category $\Set(\C)$ whose objects are sets $I$ with an $I$-indexed collection $ \{ C_i\}_{i\in I} $ of objects in $\C$.
+Morphisms of $\Set(\C)$ are morphisms of index sets $p:I \to J$ along with an $I$-indexed collection of maps $\{f_i:C_i \to D_{p(i)}\}_{i\in I}$.
+The projection functor $\pi: \Set (\C) \to \Set$ (sending $(I,\{C_i\})$ to $I$) is a cartesian functor.
+%TODO path lifting intuition
+%TODO what are the cartesian lifts
+\end{xample}
 
-  \end{definition}
-  \begin{definition}
-    Grothendieck Higher Topos (not super important here)
+\begin{xample}
+  Given a category $\C$ we have the codomain functor $\C^\to \to \C$. This is a fibration.
+  (say more?)
+\end{xample}
+Given the above example, we can highlight another approach to thinking about cartesian fibrations, namely that they are analogous ot maps of spaces which satisify the homotopy lifting (or is it extension?) property.
+However, ``paths'' and ``homotopies'' are directed here, so we have to specify whether we'd like to extend from the target or from the source (be more precise here).
+The following definitions make this approach more explicit.
 
-  \end{definition}
-  \section{General bundle theory notions categorically}
+\begin{definition}
+In the notational context of definition~\ref{def:cartesian-map}, we say $f$ is \de{pre-cartesian} if $f$ is the final amongst lifts of $\alpha$ (with the same target as $f$).
+\end{definition}
+Note that if we already know $F$ is cartesian, then pre-cartesian and cartesian morphisms are the same.
+\begin{definition}
+  In the notational context of definition~\ref{def:cartesian-map}, we say $F$ is a \de{cartesian fibration} if
+  \begin{enumerate}
+    \item every $\alpha: J \to I$ and $x\in F^{-1}(I)$ has some pre-cartesian lift
+      \item pre-cartesian lifts are closed under composition
+  \end{enumerate}
+\end{definition}
+
+
+%================================================================================
+\subsection{internal locales}
+%================================================================================
+\subsection{internal locales}
+%================================================================================
+%================================================================================
+%================================================================================
+%================================================================================
+
+
+\section{Problem Statement}
+\subsection{internal locales}
+\subsection{cartesian fibrations}
+\begin{definition}(cite Aaron's definition)
+  An $\infty$-functor $\ifun{F}:\icat{E} \to \icat{B}$ is a \de{cartesian fibration} if \ldots
+\end{definition}
+  \section{CSS}
+
 \end{document}
